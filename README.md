@@ -21,12 +21,12 @@ event type (the list can be found [here](https://stripe.com/docs/api#event_types
 and formatted like this:
 
 ```json
-    {
-      "charge.failed": {
-        "active": true,
-        "subject": "Oh nos! A Charge Has Failed!"
-      }
-    }
+{
+  "charge.failed": {
+    "active": true,
+    "subject": "Oh nos! A Charge Has Failed!"
+  }
+}
 ```
 
 `subject` is optional. By default, the email subject will be the type,
