@@ -5,7 +5,7 @@ from Stripe and send emails accordingly.
 
 There are two types of emails:
 
-- Notifcations, sent to administrators
+- Notifications, sent to administrators
 - Receipts, sent to customers
 
 It's easy to deploy and you shouldn't need to touch Python to configure it.
