@@ -1,5 +1,7 @@
 ## stripe-hooks
 
+[![Build Status](https://travis-ci.org/pearkes/stripe-hooks.png?branch=master)](https://travis-ci.org/pearkes/stripe-hooks)
+
 This is a Python web application to recieve [Webhooks](https://stripe.com/docs/webhooks)
 from Stripe and send emails accordingly.
 
