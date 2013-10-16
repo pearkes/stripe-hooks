@@ -12,7 +12,7 @@ It's easy to deploy and you shouldn't need to touch Python to configure it.
 
 ### Configuration
 
-All of the configuration is done in JSON in the `[configuration.json](configuration.json)`
+All of the configuration is done in JSON in the [`configuration.json`](configuration.json)
 file.
 
 All receipts and notifications are **off by default**. To activate
@@ -24,7 +24,7 @@ and formatted like this:
     "charge.failed": {
       "active": true,
       "subject": "Oh nos! A Charge Has Failed!"
-    },
+    }
 ```
 
 `subject` is optional. By default, the email subject will be the type,
@@ -45,24 +45,24 @@ Full configuration could look something like this:
   },
   "notifications": {
     "balance.available": {
-      "active": true,
+      "active": true
       "subject": "Dat chedda is available..."
     },
     "charge.succeeded": {
-      "active": true,
+      "active": true
     },
     "charge.failed": {
-      "active": true,
+      "active": true
     },
     "charge.refunded": {
-      "active": true,
+      "active": true
     }
   },
   "receipts": {
     "invoice.created": {
       "active": true,
       "subject": "New Invoice"
-    },
+    }
   }
 }
 ```
