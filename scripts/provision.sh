@@ -34,6 +34,10 @@ easy_install pip
 # if it's not already there.
 grep -q 'cd /vagrant' /home/vagrant/.bash_profile || echo 'cd /vagrant' >> /home/vagrant/.bash_profile
 
+# For running a web application like Heroku does
+curl https://godist.herokuapp.com/projects/ddollar/forego/releases/current/linux-amd64/forego -o /usr/local/bin/forego
+chmod +x /usr/local/bin/forego
+
 echo "
 
 Provisioning Complete. CTRL+C if this shows for more than a few seconds...

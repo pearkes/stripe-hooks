@@ -47,7 +47,7 @@ Full configuration could look something like this:
   },
   "notifications": {
     "balance.available": {
-      "active": true
+      "active": true,
       "subject": "Dat chedda is available..."
     },
     "charge.succeeded": {
