@@ -1,22 +1,32 @@
 {
-  "id": "evt_2lQ5CTBYawXWVi",
-  "created": 1381925851,
+  "id": "evt_2lQbUzojdEOlna",
+  "created": 1381927812,
   "livemode": false,
-  "type": "plan.created",
+  "type": "customer.created",
   "data": {
     "object": {
-      "interval": "month",
-      "name": "Gold Special",
-      "amount": 2000,
-      "currency": "usd",
-      "id": "gold",
-      "object": "plan",
+      "object": "customer",
+      "created": 1381927812,
+      "id": "cus_2lQbAb06RyKuQn",
       "livemode": false,
-      "interval_count": 1,
-      "trial_period_days": null
+      "description": "foobar",
+      "email": "jackpearkes@gmail.com",
+      "delinquent": false,
+      "metadata": {},
+      "subscription": null,
+      "discount": null,
+      "account_balance": 0,
+      "cards": {
+        "object": "list",
+        "count": 0,
+        "url": "/v1/customers/cus_2lQbAb06RyKuQn/cards",
+        "data": []
+      },
+      "default_card": null,
+      "active_card": null
     }
   },
   "object": "event",
-  "pending_webhooks": 0,
-  "request": null
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
 }

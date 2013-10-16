@@ -3,11 +3,6 @@ from jinja2 import Environment, FileSystemLoader
 
 from .app import app
 
-# This is the mail instance that is used to send all email
-conn = boto.connect_ses(
-    aws_access_key_id=app.config['AWS_ACCESS_KEY'],
-    aws_secret_access_key=app.config['AWS_SECRET_KEY'])
-
 # Global variables in the Jinga templates.
 globals = {'business': app.config['email']['business']}
 
@@ -18,17 +13,23 @@ receipt_templates = Environment(loader=FileSystemLoader('receipts'))
 receipt_templates.globals = globals
 
 
+def ses_connection():
+    return boto.connect_ses(
+        aws_access_key_id=app.config['AWS_ACCESS_KEY'],
+        aws_secret_access_key=app.config['AWS_SECRET_KEY'])
+
+
 def send_receipt(key, recipient, data=None):
     "Sends a receipt type of notification to a user"
-    txt_template = receipt_templates.get_template('%s.%s' % (key, 'txt'))
-    html_template = receipt_templates.get_template(
-        'email/%s.%s' % (key, 'html'))
+    txt_template = receipt_templates.get_template('%s.%s' % (key.replace(".", "/"), 'txt'))
+    html_template = receipt_templates.get_template('%s.%s' % (key.replace(".", "/"), 'html'))
 
     txt_rendered = txt_template.render(data=data)
     html_rendered = html_template.render(data=data)
 
     if app.config.get("TESTING") is True:
-        # Don't send while unit/integration testing
+        # Don't send while unit/integration testing, just print
+        print txt_rendered
         return
 
     # Configuration for the business
@@ -43,6 +44,7 @@ def send_receipt(key, recipient, data=None):
     from_address = business['email_address']
     subject = "[%s] %s" % (business['name'], subject_title)
 
+    conn = ses_connection()
     # Send the actual email
     conn.send_email(
         from_address,
@@ -54,15 +56,15 @@ def send_receipt(key, recipient, data=None):
 
 def send_notification(key, data=None):
     "Sends a notification to an administrator"
-    txt_template = receipt_templates.get_template('%s.%s' % (key, 'txt'))
-    html_template = receipt_templates.get_template(
-        'email/%s.%s' % (key, 'html'))
+    txt_template = notify_templates.get_template('%s.%s' % (key.replace(".", "/"), 'txt'))
+    html_template = notify_templates.get_template('%s.%s' % (key.replace(".", "/"), 'html'))
 
     txt_rendered = txt_template.render(data=data)
     html_rendered = html_template.render(data=data)
 
     if app.config.get("TESTING") is True:
-        # Don't send while unit/integration testing
+        # Don't send while unit/integration testing, just print
+        print txt_rendered
         return
 
     # Configuration for the business
@@ -80,6 +82,7 @@ def send_notification(key, data=None):
     from_address = business['email_address']
     subject = "[Stripe Notification] %s" % (subject_title)
 
+    conn = ses_connection()
     # Send the actual email
     conn.send_email(
         from_address,

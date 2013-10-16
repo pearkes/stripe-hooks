@@ -9,10 +9,10 @@ class TestWebhook(IntegrationTest):
         "Posts a fake stripe webhook payload to the API"
 
         httpretty.register_uri(httpretty.GET,
-                               "https://api.stripe.com/v1/events/evt_2lQ5CTBYawXWVi",
+                               "https://api.stripe.com/v1/events/evt_2lQbUzojdEOlna",
                                body=self.fixture('events/customer_created.json'))
 
-        data = json.dumps({'id': "evt_2lQ5CTBYawXWVi"})
+        data = json.dumps({'id': "evt_2lQbUzojdEOlna"})
 
         rv = self.client.post(
             "/webhook/recieve", data=data, content_type='application/json')

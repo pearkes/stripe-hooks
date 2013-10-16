@@ -1,0 +1,58 @@
+{
+  "business": {
+    "name": "Acme, Inc.",
+    "signoff": "The Acme Team",
+    "email_address": "Acme Support Team <support@example.com>",
+    "notification_address": "notify@example.com"
+  },
+  "notifications": {
+    "balance.available": {
+      "active": true
+    },
+    "charge.succeeded": {
+      "active": true
+    },
+    "charge.failed": {
+      "active": true
+    },
+    "charge.refunded": {
+      "active": true
+    },
+    "charge.dispute.created": {
+      "active": true
+    },
+    "charge.dispute.updated": {
+      "active": true
+    },
+    "customer.created": {
+      "active": true
+    },
+    "customer.updated": {
+      "active": true
+    },
+    "customer.deleted": {
+      "active": true
+    },
+    "customer.discount.created": {
+      "active": true
+    },
+    "invoice.created": {
+      "active": true
+    },
+    "invoice.payment_succeeded": {
+      "active": true
+    },
+    "invoice.payment_failed": {
+      "active": true
+    }
+  },
+  "receipts": {
+    "invoice.created": {
+      "active": true,
+      "subject": "New Invoice"
+    },
+    "customer.created": {
+      "active": true
+    }
+  }
+}
