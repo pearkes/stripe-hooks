@@ -1,5 +1,4 @@
 Flask==0.10.1
-Flask-SQLAlchemy==0.16
 pytest==2.3.5
 gevent==0.13.8
 gunicorn==17.5
