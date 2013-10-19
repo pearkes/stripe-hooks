@@ -16,7 +16,9 @@ Use cases:
 charges or new customers, to administrators
 - Sending receipts to user after they have been charged
 
-The email content included by default is versatile English. Any
+It supports *all* [Stripe events](https://stripe.com/docs/api#event_types).
+
+The email content included by default is vgersatile English. Any
 of it can be modifed to fit your business or use case. It's easy to
 deploy and you shouldn't need to touch Python to configure it.
 
