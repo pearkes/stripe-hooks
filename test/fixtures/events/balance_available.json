@@ -1,0 +1,27 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "balance.available",
+  "data": {
+    "object": {
+      "pending": [
+        {
+          "amount": 0,
+          "currency": "usd"
+        }
+      ],
+      "available": [
+        {
+          "amount": 0,
+          "currency": "usd"
+        }
+      ],
+      "livemode": false,
+      "object": "balance"
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}

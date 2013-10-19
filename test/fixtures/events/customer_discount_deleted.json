@@ -1,0 +1,24 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "customer.discount.deleted",
+  "data": {
+    "object": {
+      "id": "25OFF",
+      "percent_off": 25,
+      "amount_off": null,
+      "currency": "usd",
+      "object": "coupon",
+      "livemode": false,
+      "duration": "repeating",
+      "redeem_by": null,
+      "max_redemptions": null,
+      "times_redeemed": 0,
+      "duration_in_months": 3
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}

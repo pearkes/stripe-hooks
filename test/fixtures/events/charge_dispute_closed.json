@@ -1,0 +1,23 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "charge.dispute.closed",
+  "data": {
+    "object": {
+    "charge": "ch_29rkU0zgracWWH",
+    "amount": 1000,
+    "created": 1382186216,
+    "status": "needs_response",
+    "livemode": false,
+    "currency": "usd",
+    "object": "dispute",
+    "reason": "general",
+    "balance_transaction": "txn_2mY4w7ZCn0ws5L",
+    "evidence_due_by": 1383868799,
+    "evidence": null
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}

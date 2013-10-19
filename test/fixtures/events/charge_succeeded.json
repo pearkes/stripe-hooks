@@ -1,0 +1,53 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "charge.succeeded",
+  "data": {
+    "object": {
+      "id": "ch_29rkU0zgracWWH",
+      "object": "charge",
+      "created": 1373264428,
+      "livemode": false,
+      "paid": true,
+      "amount": 0,
+      "currency": "usd",
+      "refunded": false,
+      "card": {
+        "id": "cc_29rkLFCJ1o2Bp7",
+        "object": "card",
+        "last4": "4242",
+        "type": "Visa",
+        "exp_month": 12,
+        "exp_year": 2015,
+        "fingerprint": "fgh3ekDhd1kZrXrW",
+        "customer": null,
+        "country": "US",
+        "name": null,
+        "address_line1": null,
+        "address_line2": null,
+        "address_city": null,
+        "address_state": null,
+        "address_zip": null,
+        "address_country": null,
+        "cvc_check": null,
+        "address_line1_check": null,
+        "address_zip_check": null
+      },
+      "captured": false,
+      "refunds": [],
+      "balance_transaction": "txn_2mY4w7ZCn0ws5L",
+      "failure_message": null,
+      "failure_code": null,
+      "amount_refunded": 0,
+      "customer": null,
+      "invoice": null,
+      "description": null,
+      "dispute": null,
+      "metadata": {}
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "plan.created",
+  "data": {
+    "object": {
+      "interval": "month",
+      "name": "Gold Special",
+      "amount": 2000,
+      "currency": "usd",
+      "id": "gold",
+      "object": "plan",
+      "livemode": false,
+      "interval_count": 1,
+      "trial_period_days": null
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}

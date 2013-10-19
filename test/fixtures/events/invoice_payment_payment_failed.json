@@ -1,0 +1,67 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "invoice.payment_failed",
+  "data": {
+    "object": {
+      "date": 1382186215,
+      "id": "in_2mY4DNFIGyt7LH",
+      "period_start": 1382186215,
+      "period_end": 1382186215,
+      "lines": {
+        "data": [
+          {
+            "id": "su_2mY4oWbOSzjA3J",
+            "object": "line_item",
+            "type": "subscription",
+            "livemode": true,
+            "amount": 100,
+            "currency": "usd",
+            "proration": false,
+            "period": {
+              "start": 1384864615,
+              "end": 1387456615
+            },
+            "quantity": 1,
+            "plan": {
+              "interval": "month",
+              "name": "Gold Special",
+              "amount": 2000,
+              "currency": "usd",
+              "id": "gold",
+              "object": "plan",
+              "livemode": false,
+              "interval_count": 1,
+              "trial_period_days": null
+            },
+            "description": null
+          }
+        ],
+        "count": 1,
+        "object": "list",
+        "url": "/v1/invoices/in_2mY4DNFIGyt7LH/lines"
+      },
+      "subtotal": 0,
+      "total": 0,
+      "customer": "cus_2lQbAb06RyKuQn",
+      "object": "invoice",
+      "attempted": false,
+      "closed": false,
+      "paid": false,
+      "livemode": false,
+      "attempt_count": 0,
+      "amount_due": 0,
+      "currency": "usd",
+      "starting_balance": 0,
+      "ending_balance": null,
+      "next_payment_attempt": 1382189815,
+      "charge": null,
+      "discount": null,
+      "application_fee": null
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}

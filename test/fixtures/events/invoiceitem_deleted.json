@@ -1,0 +1,23 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "invoiceitem.deleted",
+  "data": {
+    "object": {
+      "object": "invoiceitem",
+      "id": "ii_2mY4FBtVzT3GjW",
+      "date": 1382186215,
+      "amount": 0,
+      "livemode": false,
+      "proration": false,
+      "currency": "usd",
+      "customer": "cus_2lQbAb06RyKuQn",
+      "description": "My First Invoice Item (created for API docs)",
+      "invoice": null
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}

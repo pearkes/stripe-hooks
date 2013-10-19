@@ -1,0 +1,38 @@
+{
+  "id": "evt_id_fake",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "customer.subscription.deleted",
+  "data": {
+    "object": {
+      "id": "su_2mY4oWbOSzjA3J",
+      "plan": {
+        "interval": "month",
+        "name": "Java Bindings Plan",
+        "amount": 100,
+        "currency": "usd",
+        "id": "JAVA-PLAN-dbfd01a0-c28c-421d-8ae9-5a999575fa1b",
+        "object": "plan",
+        "livemode": false,
+        "interval_count": 1,
+        "trial_period_days": null
+      },
+      "object": "subscription",
+      "start": 1382186215,
+      "status": "active",
+      "customer": "cus_2mXfKM0UJ1hUBf",
+      "cancel_at_period_end": false,
+      "current_period_start": 1382186215,
+      "current_period_end": 1384864615,
+      "ended_at": null,
+      "trial_start": null,
+      "trial_end": null,
+      "canceled_at": null,
+      "quantity": 1,
+      "application_fee_percent": null
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzBbQyG"
+}
