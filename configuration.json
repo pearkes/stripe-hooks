@@ -2,8 +2,8 @@
   "business": {
     "name": "Acme, Inc.",
     "signoff": "The Acme Team",
-    "email_address": "Acme Support Team <support@example.com>",
-    "notification_address": "notify@example.com"
+    "email_address": "Test Stripe Webhooks <stripe@kerlock.com>",
+    "notification_address": "stripe@kerlock.com"
   },
   "notifications": {
     "balance.available": {

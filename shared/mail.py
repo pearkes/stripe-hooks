@@ -6,10 +6,12 @@ from .app import app
 # Global variables in the Jinga templates.
 globals = {'business': app.config['email']['business']}
 
-notify_templates = Environment(loader=FileSystemLoader('notifications'), undefined=StrictUndefined)
+notify_templates = Environment(
+    loader=FileSystemLoader('notifications'), undefined=StrictUndefined)
 notify_templates.globals = globals
 
-receipt_templates = Environment(loader=FileSystemLoader('receipts'), undefined=StrictUndefined)
+receipt_templates = Environment(
+    loader=FileSystemLoader('receipts'), undefined=StrictUndefined)
 receipt_templates.globals = globals
 
 
@@ -21,8 +23,10 @@ def ses_connection():
 
 def send_receipt(key, recipient, data=None):
     "Sends a receipt type of notification to a user"
-    txt_template = receipt_templates.get_template('%s.%s' % (key.replace(".", "/"), 'txt'))
-    html_template = receipt_templates.get_template('%s.%s' % (key.replace(".", "/"), 'html'))
+    txt_template = receipt_templates.get_template(
+        '%s.%s' % (key.replace(".", "/"), 'txt'))
+    html_template = receipt_templates.get_template(
+        '%s.%s' % (key.replace(".", "/"), 'html'))
 
     txt_rendered = txt_template.render(data=data)
     html_rendered = html_template.render(data=data)
@@ -56,8 +60,10 @@ def send_receipt(key, recipient, data=None):
 
 def send_notification(key, data=None):
     "Sends a notification to an administrator"
-    txt_template = notify_templates.get_template('%s.%s' % (key.replace(".", "/"), 'txt'))
-    html_template = notify_templates.get_template('%s.%s' % (key.replace(".", "/"), 'html'))
+    txt_template = notify_templates.get_template(
+        '%s.%s' % (key.replace(".", "/"), 'txt'))
+    html_template = notify_templates.get_template(
+        '%s.%s' % (key.replace(".", "/"), 'html'))
 
     txt_rendered = txt_template.render(data=data)
     html_rendered = html_template.render(data=data)
