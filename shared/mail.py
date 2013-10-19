@@ -44,6 +44,8 @@ def send_receipt(key, recipient, data=None):
 
     if event_conf.get("subject") is None:
         subject_title = key.replace(".", " ").title()
+    else:
+        subject_title = event_conf["subject"]
 
     from_address = business['email_address']
     subject = "[%s] %s" % (business['name'], subject_title)
