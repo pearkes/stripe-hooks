@@ -2,26 +2,32 @@
   "id": "evt_id_fake",
   "created": 1381927812,
   "livemode": false,
-  "type": "customer.created",
+  "type": "transfer.paid",
   "data": {
     "object": {
-      "object": "customer",
-      "created": 1381927812,
-      "id": "cus_2lQbAb06RyKuQn",
-      "livemode": false,
-      "description": "foobar",
-      "email": "jackpearkes@gmail.com",
-      "delinquent": false,
+      "id": "tr_2mY4EG7wROvLo7",
+      "object": "transfer",
+      "date": 1382227200,
+      "livemode": true,
+      "amount": 1100,
+      "currency": "usd",
+      "status": "pending",
+      "balance_transaction": "txn_2mY4w7ZCn0ws5L",
+      "account": {
+        "object": "bank_account",
+        "id": "ba_0odLxGbrWH4QOt",
+        "bank_name": "J.P. MORGAN CHASE BANK, N.A.",
+        "last4": "6200",
+        "country": "US",
+        "currency": "usd",
+        "validated": false,
+        "verified": false,
+        "fingerprint": "o2yHYjj4dpGSna9F"
+      },
+      "description": "Transfer to test@example.com",
       "metadata": {},
-      "subscription": null,
-      "discount": null,
-      "account_balance": 0,
-      "cards": {
-        "object": "list",
-        "count": 0,
-        "url": "/v1/customers/cus_2lQbAb06RyKuQn/cards",
-        "data": []
-      }
+      "statement_descriptor": null,
+      "recipient": "rp_2mY4y5Q8qFQgl7"
     }
   },
   "object": "event",

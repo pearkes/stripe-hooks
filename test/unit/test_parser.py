@@ -14,6 +14,19 @@ class TestParser(UnitTest):
     will be raised if things aren't going well all the way down to the template
     rendering, hence a lack of assertions. No exception means things went well"""
 
+    def test_parser_fixtures_accurate(self):
+        """Ensures the fixtures are properly formatted before running
+        integration tests against them"""
+        event_types = glob.glob("test/fixtures/events/*.json")
+
+        for event_path in event_types:
+            try:
+                event = json.load(open(event_path))
+            except ValueError as e:
+                raise Exception(
+                    "Fixture is incorrectly formatted: %s.\nTrace: %s" % (event_path, e))
+            assert event["type"].replace(".", "_") in event_path
+
     def test_parser_request_all_events(self):
         """This test lists all of the mocked events in the test/fixtures/events
         directory, and correspondingly kicks off a parse, retrieve and render
