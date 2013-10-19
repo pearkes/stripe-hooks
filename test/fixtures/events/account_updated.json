@@ -1,0 +1,25 @@
+{
+  "id": "evt_2lQbUzojdEOlna",
+  "created": 1381927812,
+  "livemode": false,
+  "type": "account.updated",
+  "data": {
+    "object": {
+      "id": "acct_0SPbXoFvQvRoh9sSrdA8",
+      "email": "jackpearkes@gmail.com",
+      "statement_descriptor": "JACK.LY",
+      "details_submitted": true,
+      "charge_enabled": true,
+      "transfer_enabled": true,
+      "currencies_supported": [
+        "USD"
+      ],
+      "default_currency": "USD",
+      "country": "US",
+      "object": "account"
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 4,
+  "request": "iar_2lQbmPTHzAbQyG"
+}

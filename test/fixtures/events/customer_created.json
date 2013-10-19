@@ -1,5 +1,5 @@
 {
-  "id": "evt_2lQbUzojdEOlna",
+  "id": "evt_id_fake",
   "created": 1381927812,
   "livemode": false,
   "type": "customer.created",
@@ -21,9 +21,7 @@
         "count": 0,
         "url": "/v1/customers/cus_2lQbAb06RyKuQn/cards",
         "data": []
-      },
-      "default_card": null,
-      "active_card": null
+      }
     }
   },
   "object": "event",

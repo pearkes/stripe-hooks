@@ -1,7 +1,7 @@
 import stripe
 from .app import app
 from helpers import ParseHookFailure
-from shared.mail import send_notification
+from shared.mail import send_notification, send_receipt
 
 
 def parse_hook(payload):
@@ -11,11 +11,16 @@ def parse_hook(payload):
 
     See https://github.com/pearkes/stripe-hooks#security
     """
-    # Request the event from Stripe
-    event = stripe.Event.retrieve(payload["id"])
+    # Request the event from Stripe, raises stripe.InvalidRequestError if
+    # not found.
+    event = stripe.Event.retrieve(payload.get("id"))
 
-    if not event:
-        raise ParseHookFailure("event does not exist")
+    # Determine what type of event it is and send any nots/receipts
+    determine_event_type(event)
+
+
+def determine_event_type(event):
+    "Determines what type of hook an event is"
 
     config = app.config['email']
 
@@ -25,18 +30,12 @@ def parse_hook(payload):
     if config['receipts'].get(event.type):
         parse_receipt(event)
 
-    return False
-
 
 def parse_notification(event):
-    """Parses a notification as it was enabled and ready to be sent.
-    """
+    "Parse the details of an event for a notification"
     send_notification(event.type, event.data.object)
-    pass
 
 
 def parse_receipt(event):
-    """Parses a notification as it was enabled and ready to be sent.
-    """
-    raise ParseHookFailure("failed!")
-    pass
+    "Parse the details of an event for a receipt"
+    send_receipt(event.type, event.data.object)

@@ -1,15 +1,15 @@
 import boto
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from .app import app
 
 # Global variables in the Jinga templates.
 globals = {'business': app.config['email']['business']}
 
-notify_templates = Environment(loader=FileSystemLoader('notifications'))
+notify_templates = Environment(loader=FileSystemLoader('notifications'), undefined=StrictUndefined)
 notify_templates.globals = globals
 
-receipt_templates = Environment(loader=FileSystemLoader('receipts'))
+receipt_templates = Environment(loader=FileSystemLoader('receipts'), undefined=StrictUndefined)
 receipt_templates.globals = globals
 
 
