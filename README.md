@@ -10,7 +10,15 @@ There are two types of emails:
 - Notifications, sent to administrators
 - Receipts, sent to customers
 
-It's easy to deploy and you shouldn't need to touch Python to configure it.
+Use cases:
+
+- Sending notifications about important Stripe events, such as failed
+charges or new customers, to administrators
+- Sending receipts to user after they have been charged
+
+The email content included by default is versatile English. Any
+of it can be modifed to fit your business or use case. It's easy to
+deploy and you shouldn't need to touch Python to configure it.
 
 ### Configuration
 
