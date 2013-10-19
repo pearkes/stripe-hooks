@@ -30,9 +30,8 @@ def load_configuration(path):
     return data
 
 
-class ParseHookFailure(Exception):
+class CleanParseException(Exception):
 
     """An Exception used when a failure parsing the content of a webhook
-    is caused.
+    is caused, but we should respond to Stripe with a 200
     """
-    pass
