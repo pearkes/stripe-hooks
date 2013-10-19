@@ -23,6 +23,10 @@ def ses_connection():
 
 def send_receipt(key, recipient, data=None):
     "Sends a receipt type of notification to a user"
+    # If we don't have an ID, which we shouldn't, default it.
+    if data is None:
+        data = {"id": "no_event"}
+
     txt_template = receipt_templates.get_template(
         '%s.%s' % (key.replace(".", "/"), 'txt'))
     html_template = receipt_templates.get_template(
@@ -43,7 +47,7 @@ def send_receipt(key, recipient, data=None):
     event_conf = app.config['email']['receipts'].get(key)
 
     if event_conf.get("subject") is None:
-        subject_title = key.replace(".", " ").title()
+        subject_title = "%s (%s)" % (key.replace(".", " ").title(), data["id"])
     else:
         subject_title = event_conf["subject"]
 
@@ -62,6 +66,10 @@ def send_receipt(key, recipient, data=None):
 
 def send_notification(key, data=None):
     "Sends a notification to an administrator"
+    # If we don't have an ID, which we shouldn't, default it.
+    if data is None:
+        data = {"id": "no_event"}
+
     txt_template = notify_templates.get_template(
         '%s.%s' % (key.replace(".", "/"), 'txt'))
     html_template = notify_templates.get_template(
@@ -83,7 +91,7 @@ def send_notification(key, data=None):
 
     # Default the subject if there isn't one specified
     if event_conf.get("subject") is None:
-        subject_title = key.replace(".", " ").title()
+        subject_title = "%s (%s)" % (key.replace(".", " ").title(), data["id"])
     else:
         subject_title = event_conf["subject"]
 
