@@ -7,8 +7,8 @@ from Stripe and send emails accordingly.
 
 There are two types of emails:
 
-- Notifications, sent to administrators
-- Receipts, sent to customers
+- [Notifications](notifications/), sent to administrators
+- [Receipts](receipts/), sent to customers
 
 Use cases:
 
