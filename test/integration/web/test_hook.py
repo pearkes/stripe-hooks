@@ -19,3 +19,18 @@ class TestWebhook(IntegrationTest):
 
         assert rv.status_code == 200
         assert b'success' in rv.data
+
+    def test_recieve_bad(self):
+        "Posts a fake stripe webhook payload to the API with a bad id"
+
+        httpretty.register_uri(
+            httpretty.GET, "https://api.stripe.com/v1/events/evt_id_fake",
+            body=self.fixture('not_found.json'), status=404)
+
+        data = json.dumps({'id': "evt_id_fake"})
+
+        rv = self.client.post(
+            "/webhook/recieve", data=data, content_type='application/json')
+
+        assert rv.status_code == 406
+        assert b'No such event' in rv.data

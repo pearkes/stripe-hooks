@@ -1,5 +1,6 @@
 from flask import Blueprint, request
-from shared.helpers import jsonify_with_status, ParseHookFailure
+from stripe import InvalidRequestError
+from shared.helpers import jsonify_with_status
 from shared.parser import parse_hook
 
 hook = Blueprint("hook", __name__)
@@ -22,7 +23,7 @@ def receieve_hook():
 
     try:
         parse_hook(request.json)
-    except ParseHookFailure as e:
+    except InvalidRequestError as e:
         # If the hook failed to parse, send back why to stripe
         # This will be visible in your dashboard
         return jsonify_with_status(406, {'error': str(e)})

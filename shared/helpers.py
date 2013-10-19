@@ -17,12 +17,15 @@ def load_configuration(path):
     """
     data = json.load(open(path))
 
-    if not data.get("business"):
-        Exception("Configuration failure: a business attribute is required")
-    if not data.get("business").get("email_address"):
-        Exception("Configuration failure: a business email is required")
-    if not data.get("business").get("notification_address"):
-        Exception("Configuration failure: a notification address is required")
+    if data.get("business") == None:
+        raise Exception(
+            "Configuration failure: a business attribute is required")
+    if data["business"].get("email_address") == None:
+        raise Exception(
+            "Configuration failure: a business email address is required")
+    if data["business"].get("notification_address") == None:
+        raise Exception(
+            "Configuration failure: a notification address is required")
 
     return data
 

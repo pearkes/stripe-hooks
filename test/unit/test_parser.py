@@ -2,7 +2,7 @@ import httpretty
 import glob
 import json
 import pytest
-import stripe
+from stripe import InvalidRequestError
 from test.base import UnitTest
 from shared.parser import parse_hook
 
@@ -44,11 +44,11 @@ class TestParser(UnitTest):
             httpretty.GET, "https://api.stripe.com/v1/events/evt_id_fake",
             body=self.fixture('not_found.json'), status=404)
 
-        with pytest.raises(stripe.InvalidRequestError):
+        with pytest.raises(InvalidRequestError):
             parse_hook({"id": "evt_id_fake"})
 
     def test_parser_no_id(self):
         "Tests parsing no id"
 
-        with pytest.raises(stripe.InvalidRequestError):
+        with pytest.raises(InvalidRequestError):
             parse_hook({})
