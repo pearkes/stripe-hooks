@@ -12,7 +12,7 @@
       "livemode": false,
       "proration": false,
       "currency": "usd",
-      "customer": "cus_2lQbAb06RyKuQn",
+      "customer": "cus_id_fake",
       "description": "My First Invoice Item (created for API docs)",
       "invoice": null
     }

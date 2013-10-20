@@ -44,7 +44,7 @@
       },
       "subtotal": 0,
       "total": 0,
-      "customer": "cus_2lQbAb06RyKuQn",
+      "customer": "cus_id_fake",
       "object": "invoice",
       "attempted": false,
       "closed": false,

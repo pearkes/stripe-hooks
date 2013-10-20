@@ -20,7 +20,7 @@
       "object": "subscription",
       "start": 1382186215,
       "status": "active",
-      "customer": "cus_2mXfKM0UJ1hUBf",
+      "customer": "cus_id_fake",
       "cancel_at_period_end": false,
       "current_period_start": 1382186215,
       "current_period_end": 1384864615,
