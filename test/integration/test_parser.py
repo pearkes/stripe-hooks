@@ -3,12 +3,12 @@ import glob
 import json
 import pytest
 from stripe import InvalidRequestError
-from test.base import UnitTest
+from test.base import IntegrationTest
 from shared.parser import parse_hook
 from shared.helpers import CleanParseException
 
 
-class TestParser(UnitTest):
+class TestParser(IntegrationTest):
 
     """Parser tests simply mock the Stripe API, pass in a fake event and
     expects that the parser properly renders text and HTML templates. Exceptions
