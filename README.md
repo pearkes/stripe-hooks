@@ -89,6 +89,8 @@ much anywhere.
 
 On Heroku:
 
+    $ git clone --recursive git@github.com:pearkes/stripe-hooks.git
+    ...
     $ heroku create
     ...
     $ git push heroku master
@@ -106,9 +108,14 @@ easy to set-up.
 
 ### Changing Email Content
 
-You can either fork and make changes there or clone and create your own
-repository. You can freely edit the `.txt` and `.html` files to fit your
-needs.
+The default email is include in a submodule called `stripe-hooks-emails`.
+
+You can fork [that repository](https://github.com/pearkes/stripe-hooks-emails),
+then update the `.gitmodules` path to use your fork. Then, all you need
+to do is a `git submodule update` and you'll be using your content.
+
+Alternatively, you can just clone the repository bare and work off of that.
+However, that will make upstream updates harder to integrate.
 
 ### Security
 
