@@ -16,7 +16,7 @@ Use cases:
 charges or new customers, to administrators
 - Sending receipts to user after they have been charged
 
-It supports **all** [Stripe events](https://stripe.com/docs/api#event_types).
+It supports **all** Stripe [events](https://stripe.com/docs/api#event_types).
 
 The email content included by default is versatile English. Any
 of it can be modifed to fit your business or use case. It's easy to
