@@ -38,10 +38,32 @@ def parse_notification(event):
 
 def parse_receipt(event):
     "Parse the details of an event for a receipt"
-    try:
-        print event.customer
-    except:
+    recepient = find_email_address(event.data.object)
+
+    # A CleanParseException tells the webhook to respond
+    # succesfully with a message back to the stripe dashboard
+    if not recepient:
         raise CleanParseException(
             "Can't find customer email address for receipt")
 
-    # send_receipt(event.type, recepient, event.data.object)
+    send_receipt(event.type, recepient, event.data.object)
+
+
+def find_email_address(stripe_object):
+    """Looks for an email in a stripe object, returns an email or None
+    if there wasn't one found, which may be the case sometimes."""
+
+    # Some objects have an "email" field, this makes it easy
+    email = stripe_object.get("email")
+
+    if email:
+        return email
+
+    # Others have a customer ID, we'll need to request
+    # it from Stripe in this case.
+    customer = stripe_object.get("customer")
+
+    if customer:
+        full_customer = stripe.Customer.retrieve(customer)
+        if full_customer.email:
+            return full_customer.email

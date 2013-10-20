@@ -5,6 +5,7 @@ import pytest
 from stripe import InvalidRequestError
 from test.base import UnitTest
 from shared.parser import parse_hook
+from shared.helpers import CleanParseException
 
 
 class TestParser(UnitTest):
@@ -33,10 +34,15 @@ class TestParser(UnitTest):
         integration test. This means, to add a new event, all you need to do
         is drop in the JSON representation and this test will pick it up."""
 
+        httpretty.register_uri(
+            httpretty.GET, "https://api.stripe.com/v1/customers/cus_id_fake",
+            body=self.fixture('customer.json'))
+
         event_types = glob.glob("test/fixtures/events/*.json")
 
         for event_path in event_types:
             event = json.load(open(event_path))
+            print event["type"]
 
             try:
                 event_type = event["type"].replace(".", "_")
@@ -48,6 +54,22 @@ class TestParser(UnitTest):
                 httpretty.GET, "https://api.stripe.com/v1/events/evt_id_fake",
                 body=self.fixture('events/%s.json' % event_type))
 
+            parse_hook({"id": "evt_id_fake"})
+
+    def test_parser_event_no_email(self):
+        """This tests an event with a customer attached that does not
+        have an email address."""
+
+        httpretty.register_uri(
+            httpretty.GET, "https://api.stripe.com/v1/customers/cus_id_fake",
+            body=self.fixture('customer_no_email.json'))
+
+        httpretty.register_uri(
+            httpretty.GET, "https://api.stripe.com/v1/events/evt_id_fake",
+            body=self.fixture('events/customer_card_created.json'))
+
+        # Should raise a "safe" clean parse exception
+        with pytest.raises(CleanParseException):
             parse_hook({"id": "evt_id_fake"})
 
     def test_parser_bad_id(self):
