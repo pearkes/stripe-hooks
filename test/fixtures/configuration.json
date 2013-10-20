@@ -51,7 +51,25 @@
       "active": true,
       "subject": "New Invoice"
     },
+    "charge.succeeded": {
+      "active": true
+    },
+    "charge.failed": {
+      "active": true
+    },
+    "charge.refunded": {
+      "active": true
+    },
     "customer.created": {
+      "active": true
+    },
+    "customer.card.created": {
+      "active": true
+    },
+    "customer.card.updated": {
+      "active": true
+    },
+    "customer.card.deleted": {
       "active": true
     }
   }

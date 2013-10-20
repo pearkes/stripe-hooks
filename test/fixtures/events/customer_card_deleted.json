@@ -12,7 +12,7 @@
       "exp_month": 12,
       "exp_year": 2015,
       "fingerprint": "fgh3ekDhd1kZrXrW",
-      "customer": null,
+      "customer": "cus_id_fake",
       "country": "US",
       "name": null,
       "address_line1": null,
