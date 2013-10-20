@@ -1,0 +1,3 @@
+[submodule "stripe-hooks-emails"]
+	path = stripe-hooks-emails
+	url = git://github.com/pearkes/stripe-hooks-emails
