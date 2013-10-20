@@ -6,7 +6,16 @@
     "notification_address": "notify@example.com"
   },
   "notifications": {
+    "account.updated": {
+      "active": true
+    },
     "balance.available": {
+      "active": true
+    },
+    "charge.captured": {
+      "active": true
+    },
+    "charge.refunded": {
       "active": true
     },
     "charge.succeeded": {
@@ -15,13 +24,19 @@
     "charge.failed": {
       "active": true
     },
-    "charge.refunded": {
+    "charge.dispute.closed": {
       "active": true
     },
     "charge.dispute.created": {
       "active": true
     },
     "charge.dispute.updated": {
+      "active": true
+    },
+    "coupon.created": {
+      "active": true
+    },
+    "coupon.deleted": {
       "active": true
     },
     "customer.created": {
@@ -33,7 +48,22 @@
     "customer.deleted": {
       "active": true
     },
+    "customer.card.created": {
+      "active": true
+    },
+    "customer.card.deleted": {
+      "active": true
+    },
+    "customer.card.updated": {
+      "active": true
+    },
     "customer.discount.created": {
+      "active": true
+    },
+    "customer.discount.deleted": {
+      "active": true
+    },
+    "customer.discount.updated": {
       "active": true
     },
     "invoice.created": {
@@ -44,12 +74,47 @@
     },
     "invoice.payment_failed": {
       "active": true
+    },
+    "invoice.updated": {
+      "active": true
+    },
+    "invoice.updated": {
+      "active": true
+    },
+    "invoiceitem.created": {
+      "active": true
+    },
+    "invoiceitem.deleted": {
+      "active": true
+    },
+    "invoiceitem.updated": {
+      "active": true
+    },
+    "plan.created": {
+      "active": true
+    },
+    "plan.deleted": {
+      "active": true
+    },
+    "plan.updated": {
+      "active": true
+    },
+    "transfer.created": {
+      "active": true
+    },
+    "transfer.paid": {
+      "active": true
+    },
+    "transfer.updated": {
+      "active": true
     }
   },
   "receipts": {
-    "invoice.created": {
-      "active": true,
-      "subject": "New Invoice"
+    "charge.captured": {
+      "active": true
+    },
+    "charge.refunded": {
+      "active": true
     },
     "charge.succeeded": {
       "active": true
@@ -57,19 +122,55 @@
     "charge.failed": {
       "active": true
     },
-    "charge.refunded": {
+    "customer.created": {
       "active": true
     },
-    "customer.created": {
+    "customer.updated": {
+      "active": true
+    },
+    "customer.deleted": {
       "active": true
     },
     "customer.card.created": {
       "active": true
     },
+    "customer.card.deleted": {
+      "active": true
+    },
     "customer.card.updated": {
       "active": true
     },
-    "customer.card.deleted": {
+    "customer.discount.created": {
+      "active": true
+    },
+    "customer.discount.deleted": {
+      "active": true
+    },
+    "customer.discount.updated": {
+      "active": true
+    },
+    "invoice.created": {
+      "active": true
+    },
+    "invoice.payment_succeeded": {
+      "active": true
+    },
+    "invoice.payment_failed": {
+      "active": true
+    },
+    "invoice.updated": {
+      "active": true
+    },
+    "invoice.updated": {
+      "active": true
+    },
+    "invoiceitem.created": {
+      "active": true
+    },
+    "invoiceitem.deleted": {
+      "active": true
+    },
+    "invoiceitem.updated": {
       "active": true
     }
   }

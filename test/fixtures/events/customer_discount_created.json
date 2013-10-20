@@ -5,17 +5,24 @@
   "type": "customer.discount.created",
   "data": {
     "object": {
-      "id": "25OFF",
-      "percent_off": 25,
-      "amount_off": null,
-      "currency": "usd",
-      "object": "coupon",
-      "livemode": false,
-      "duration": "repeating",
-      "redeem_by": null,
-      "max_redemptions": null,
-      "times_redeemed": 0,
-      "duration_in_months": 3
+      "id": "di_2mrI659MOwMUzI",
+      "coupon": {
+        "id": "25OFF",
+        "percent_off": 25,
+        "amount_off": null,
+        "currency": "usd",
+        "object": "coupon",
+        "livemode": false,
+        "duration": "repeating",
+        "redeem_by": null,
+        "max_redemptions": null,
+        "times_redeemed": 0,
+        "duration_in_months": 3
+      },
+      "start": 1382257728,
+      "object": "discount",
+      "customer": "cus_id_fake",
+      "end": 1390206528
     }
   },
   "object": "event",
