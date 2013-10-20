@@ -81,6 +81,35 @@ Full configuration could look something like this:
 }
 ```
 
+### Deploying
+
+This is designed to be deployed on Heroku. However, it's simple
+enough and has so few dependencies that you could run it pretty
+much anywhere.
+
+On Heroku:
+
+    $ heroku create
+    ...
+    $ git push heroku master
+
+Then, you'll need to add your keys:
+
+    $ heroku config:add STRIPE_KEY=foobar AWS_ACCESS_KEY=foobar AWS_SECRET_KEY=foobar
+
+That's it. Register that URL with Stripe and you're good to go.
+
+### Email Provider
+
+Right now, it uses [Amazon SES](http://aws.amazon.com/ses/). Reliable, cheap and
+easy to set-up.
+
+### Changing Email Content
+
+You can either fork and make changes there or clone and create your own
+repository. You can freely edit the `.txt` and `.html` files to fit your
+needs.
+
 ### Security
 
 In order to avoid fraudulent requests made to the `/webhook/recieve` endpoint,
