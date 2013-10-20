@@ -41,6 +41,9 @@ and formatted like this:
 }
 ```
 
+**Please note that the default [`configuration.json`](configuration.json)
+has active notifications.**
+
 `subject` is optional. By default, the email subject will be the type,
 periods replacing spaces and titlecased, prefixed with your
 business name (if it exists) like so: `charge.failed -> [Acme Inc.] Charge Failed`.
