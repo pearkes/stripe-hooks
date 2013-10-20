@@ -8,11 +8,11 @@ from .app import app
 globals = {'business': app.config['email']['business']}
 
 notify_templates = Environment(
-    loader=FileSystemLoader('notifications'), undefined=StrictUndefined)
+    loader=FileSystemLoader('stripe-hooks-emails/notifications'), undefined=StrictUndefined)
 notify_templates.globals = globals
 
 receipt_templates = Environment(
-    loader=FileSystemLoader('receipts'), undefined=StrictUndefined)
+    loader=FileSystemLoader('stripe-hooks-emails/receipts'), undefined=StrictUndefined)
 receipt_templates.globals = globals
 
 
