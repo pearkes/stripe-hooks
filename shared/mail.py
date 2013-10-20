@@ -1,4 +1,5 @@
 import boto
+import time
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from .app import app
@@ -35,11 +36,6 @@ def send_receipt(key, recipient, data=None):
     txt_rendered = txt_template.render(data=data)
     html_rendered = html_template.render(data=data)
 
-    if app.config.get("TESTING") is True:
-        # Don't send while unit/integration testing, just print
-        print txt_rendered
-        return
-
     # Configuration for the business
     business = app.config['email']['business']
 
@@ -54,6 +50,10 @@ def send_receipt(key, recipient, data=None):
     from_address = business['email_address']
     subject = "[%s] %s" % (business['name'], subject_title)
 
+    if app.config.get("TESTING") is True:
+        # Don't send while unit/integration testing
+        return
+
     conn = ses_connection()
     # Send the actual email
     conn.send_email(
@@ -66,9 +66,6 @@ def send_receipt(key, recipient, data=None):
 
 def send_notification(key, data=None):
     "Sends a notification to an administrator"
-    # If we don't have an ID, which we shouldn't, default it.
-    if data is None:
-        data = {"id": "no_event"}
 
     txt_template = notify_templates.get_template(
         '%s.%s' % (key.replace(".", "/"), 'txt'))
@@ -78,11 +75,6 @@ def send_notification(key, data=None):
     txt_rendered = txt_template.render(data=data)
     html_rendered = html_template.render(data=data)
 
-    if app.config.get("TESTING") is True:
-        # Don't send while unit/integration testing, just print
-        print txt_rendered
-        return
-
     # Configuration for the business
     business = app.config['email']['business']
 
@@ -91,12 +83,17 @@ def send_notification(key, data=None):
 
     # Default the subject if there isn't one specified
     if event_conf.get("subject") is None:
-        subject_title = "%s (%s)" % (key.replace(".", " ").title(), data["id"])
+        subject_title = "%s (%s)" % (
+            key.replace(".", " ").title(), data.get("id", int(time.time())))
     else:
         subject_title = event_conf["subject"]
 
     from_address = business['email_address']
     subject = "[Stripe Notification] %s" % (subject_title)
+
+    if app.config.get("TESTING") is True:
+        # Don't send while unit/integration testing
+        return
 
     conn = ses_connection()
     # Send the actual email
