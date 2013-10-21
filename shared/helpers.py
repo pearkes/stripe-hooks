@@ -15,7 +15,7 @@ def jsonify_with_status(status, *args, **kwargs):
 def humanize_date(epoch):
     "Converts an epoch timestamp to a human readable time"
     return time.strftime("%a, %d %b %Y %H:%M:%S",
-                         time.localtime(epoch))
+                         time.gmtime(epoch))
 
 
 def humanize_money(amount):

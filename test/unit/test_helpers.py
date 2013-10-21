@@ -43,7 +43,7 @@ class TestHelpers(UnitTest):
 
     def test_humanize_date(self):
         formatted = humanize_date(1382194639)
-        assert formatted == "Sat, 19 Oct 2013 07:57:19"
+        assert formatted == "Sat, 19 Oct 2013 14:57:19"
 
     def test_humanize_money(self):
         # 1000 cents is 10 dollaz
