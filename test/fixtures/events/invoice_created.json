@@ -51,7 +51,7 @@
       "paid": false,
       "livemode": false,
       "attempt_count": 0,
-      "amount_due": 0,
+      "amount_due": 10,
       "currency": "usd",
       "starting_balance": 0,
       "ending_balance": null,

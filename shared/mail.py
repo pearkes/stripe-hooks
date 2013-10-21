@@ -2,11 +2,13 @@ import boto
 import time
 import datetime
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from shared.helpers import humanize_date, humanize_money
 
 from .app import app
 
 # Global variables in the Jinga templates.
-globals = {'business': app.config['email']['business']}
+globals = {'business': app.config['email'][
+    'business'], 'humanize_date': humanize_date, 'humanize_money': humanize_money}
 
 notify_templates = Environment(
     loader=FileSystemLoader('stripe-hooks-emails/notifications'), undefined=StrictUndefined)
