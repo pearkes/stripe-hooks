@@ -1,7 +1,7 @@
 import stripe
 from .app import app
 from shared.mail import send_notification, send_receipt
-from shared.helpers import CleanParseException
+from shared.helpers import CleanParseException, format_stripe_object
 
 
 def parse_hook(payload):
@@ -33,7 +33,10 @@ def determine_event_type(event):
 
 def parse_notification(event):
     "Parse the details of an event for a notification"
-    send_notification(event.type, event.data.object)
+    # Format the data for the email
+    data = format_stripe_object(event.data.object)
+
+    send_notification(event.type, data)
 
 
 def parse_receipt(event):
@@ -46,7 +49,10 @@ def parse_receipt(event):
         raise CleanParseException(
             "Can't find customer email address for receipt")
 
-    send_receipt(event.type, recepient, event.data.object)
+    # Format the data for the email
+    data = format_stripe_object(event.data.object)
+
+    send_receipt(event.type, recepient, data)
 
 
 def find_email_address(stripe_object):

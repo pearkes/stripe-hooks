@@ -2,7 +2,7 @@ import json
 import tempfile
 import pytest
 from test.base import UnitTest
-from shared.helpers import load_configuration
+from shared.helpers import load_configuration, datetime_from_epoch
 
 
 class TestHelpers(UnitTest):
@@ -39,3 +39,7 @@ class TestHelpers(UnitTest):
 
         with pytest.raises(Exception):
             load_configuration(temp_file.name)
+
+    def test_datetime_from_epoch(self):
+        formatted = datetime_from_epoch(1382194639)
+        assert formatted == "Sat, 19 Oct 2013 07:57:19"

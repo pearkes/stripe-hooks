@@ -92,7 +92,7 @@ much anywhere.
 
 On Heroku:
 
-    $ git clone --recursive git@github.com:pearkes/stripe-hooks.git
+    $ git clone --runecursive git@github.com:pearkes/stripe-hooks.git
     ...
     $ heroku create
     ...

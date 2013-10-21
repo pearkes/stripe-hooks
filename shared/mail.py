@@ -1,5 +1,6 @@
 import boto
 import time
+import datetime
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from .app import app
@@ -33,9 +34,6 @@ def send_receipt(key, recipient, data=None):
     html_template = receipt_templates.get_template(
         '%s.%s' % (key.replace(".", "/"), 'html'))
 
-    txt_rendered = txt_template.render(data=data)
-    html_rendered = html_template.render(data=data)
-
     # Configuration for the business
     business = app.config['email']['business']
 
@@ -49,6 +47,14 @@ def send_receipt(key, recipient, data=None):
 
     from_address = business['email_address']
     subject = "[%s] %s" % (business['name'], subject_title)
+
+    # Add some namespaced helpers to the data
+    meta = {}
+    meta['subject'] = subject
+    meta['current_timestamp'] = datetime.datetime.now()
+
+    txt_rendered = txt_template.render(data=data, meta=meta)
+    html_rendered = html_template.render(data=data, meta=meta)
 
     if app.config.get("TESTING") is True:
         # Don't send while unit/integration testing
@@ -72,9 +78,6 @@ def send_notification(key, data=None):
     html_template = notify_templates.get_template(
         '%s.%s' % (key.replace(".", "/"), 'html'))
 
-    txt_rendered = txt_template.render(data=data)
-    html_rendered = html_template.render(data=data)
-
     # Configuration for the business
     business = app.config['email']['business']
 
@@ -90,6 +93,14 @@ def send_notification(key, data=None):
 
     from_address = business['email_address']
     subject = "[Stripe Notification] %s" % (subject_title)
+
+    # Add some namespaced helpers to the data
+    meta = {}
+    meta['subject'] = subject
+    meta['current_timestamp'] = datetime.datetime.now()
+
+    txt_rendered = txt_template.render(data=data, meta=meta)
+    html_rendered = html_template.render(data=data, meta=meta)
 
     if app.config.get("TESTING") is True:
         # Don't send while unit/integration testing

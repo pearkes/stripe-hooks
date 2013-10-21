@@ -42,7 +42,6 @@ class TestParser(IntegrationTest):
 
         for event_path in event_types:
             event = json.load(open(event_path))
-            print event["type"]
 
             try:
                 event_type = event["type"].replace(".", "_")
