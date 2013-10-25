@@ -5,7 +5,7 @@ from test.base import IntegrationTest
 
 class TestWebhook(IntegrationTest):
 
-    def test_recieve(self):
+    def test_receive(self):
         "Posts a fake stripe webhook payload to the API"
 
         httpretty.register_uri(httpretty.GET,
@@ -15,12 +15,12 @@ class TestWebhook(IntegrationTest):
         data = json.dumps({'id': "evt_2lQbUzojdEOlna"})
 
         rv = self.client.post(
-            "/webhook/recieve", data=data, content_type='application/json')
+            "/webhook/receive", data=data, content_type='application/json')
 
         assert rv.status_code == 200
         assert b'success' in rv.data
 
-    def test_recieve_bad(self):
+    def test_receive_bad(self):
         "Posts a fake stripe webhook payload to the API with a bad id"
 
         httpretty.register_uri(
@@ -30,7 +30,7 @@ class TestWebhook(IntegrationTest):
         data = json.dumps({'id': "evt_id_fake"})
 
         rv = self.client.post(
-            "/webhook/recieve", data=data, content_type='application/json')
+            "/webhook/receive", data=data, content_type='application/json')
 
         assert rv.status_code == 406
         assert b'No such event' in rv.data

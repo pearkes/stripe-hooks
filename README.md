@@ -2,13 +2,13 @@
 
 [![Build Status](https://travis-ci.org/pearkes/stripe-hooks.png?branch=master)](https://travis-ci.org/pearkes/stripe-hooks)
 
-This is a Python web application to recieve [Webhooks](https://stripe.com/docs/webhooks)
+This is a Python web application to receive [webhooks](https://stripe.com/docs/webhooks)
 from Stripe and send emails accordingly.
 
 There are two types of emails:
 
-- [Notifications](notifications/), sent to administrators
-- [Receipts](receipts/), sent to customers
+- [Notifications](https://github.com/pearkes/stripe-hooks-emails/tree/master/notifications), sent to administrators
+- [Receipts](https://github.com/pearkes/stripe-hooks-emails/tree/master/receipts), sent to customers
 
 Use cases:
 
@@ -93,7 +93,7 @@ much anywhere.
 
 On Heroku:
 
-    $ git clone --runecursive git@github.com:pearkes/stripe-hooks.git
+    $ git clone --recursive git@github.com:pearkes/stripe-hooks.git
     ...
     $ heroku create
     ...
@@ -123,10 +123,17 @@ However, that will make upstream updates harder to integrate.
 
 ### Security
 
-In order to avoid fraudulent requests made to the `/webhook/recieve` endpoint,
+In order to avoid fraudulent requests made to the `/webhook/receive` endpoint,
 the only attribute trusted in the payload is the event ID. This ID is then
 used to request the event directly from Stripe with proper authentication.
 
+### Testing Templates
+
+There are automated tests to guarantee the integrity of your templates.
+
+See the [contributing guide](CONTRIBUTING.md) to learn how to set-up
+an environment to run the tests.
+
 ### Contributing
 
-See the [Contributing Guide](CONTRIBUTING.md).
+See the [contributing guide](CONTRIBUTING.md).

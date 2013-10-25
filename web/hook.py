@@ -6,10 +6,10 @@ from shared.parser import parse_hook
 hook = Blueprint("hook", __name__)
 
 
-@hook.route("/recieve", methods=["POST"])
+@hook.route("/receive", methods=["POST"])
 def receieve_hook():
     """
-    Path:       /webhook/recieve
+    Path:       /webhook/receive
     Method:     POST
     """
     # Abort if we're not sent JSON
