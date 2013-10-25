@@ -27,7 +27,8 @@ deploy and you shouldn't need to touch Python to configure it.
 All of the configuration is done in JSON in the [`configuration.json`](configuration.json)
 file.
 
-All receipts and notifications are **off by default**. To activate
+All receipts and notifications are **off by default** with a blank
+`configuration.json`. To activate
 a notification or receipt, simply create a new key, named by the
 event type (the list can be found [here](https://stripe.com/docs/api#event_types))
 and formatted like this:
